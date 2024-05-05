@@ -9,12 +9,12 @@ use Filament\Support\Assets\Js;
 use Filament\Support\Facades\FilamentAsset;
 use Filament\Support\Facades\FilamentIcon;
 use Illuminate\Filesystem\Filesystem;
+use Joaopaulolndev\FilamentGeneralSettings\Commands\FilamentGeneralSettingsCommand;
+use Joaopaulolndev\FilamentGeneralSettings\Testing\TestsFilamentGeneralSettings;
 use Livewire\Features\SupportTesting\Testable;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Joaopaulolndev\FilamentGeneralSettings\Commands\FilamentGeneralSettingsCommand;
-use Joaopaulolndev\FilamentGeneralSettings\Testing\TestsFilamentGeneralSettings;
 
 class FilamentGeneralSettingsServiceProvider extends PackageServiceProvider
 {
@@ -65,10 +65,10 @@ class FilamentGeneralSettingsServiceProvider extends PackageServiceProvider
     public function packageBooted(): void
     {
         // Asset Registration
-//        FilamentAsset::register(
-//            $this->getAssets(),
-//            $this->getAssetPackageName()
-//        );
+        //        FilamentAsset::register(
+        //            $this->getAssets(),
+        //            $this->getAssetPackageName()
+        //        );
 
         FilamentAsset::registerScriptData(
             $this->getScriptData(),
