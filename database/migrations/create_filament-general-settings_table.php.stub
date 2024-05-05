@@ -8,7 +8,7 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('filament_general_settings_table', function (Blueprint $table) {
+        Schema::create('general_settings_table', function (Blueprint $table) {
             $table->id();
             $table->string('site_name');
             $table->text('site_description')->nullable();
