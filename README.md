@@ -8,21 +8,16 @@
 
 Create really fast and easily general settings for your Laravel Filament project.
 
+![Screenshot of Application Feature](./art/joaopaulolndev-filament-general-settings.jpg)
+
 ## Features & Screenshots
-Application Feature
-![Screenshot of Application Feature](./art/general_settings_1.png)
 
-Analytics Feature
-![Screenshot of Application Feature](./art/general_settings_2.png)
-
-SEO Feature
-![Screenshot of Application Feature](./art/general_settings_3.png)
-
-Email Feature
-![Screenshot of Application Feature](./art/general_settings_4.png)
-
-Social Network Feature
-![Screenshot of Application Feature](./art/general_settings_5.png)
+- **Application:** Manage your system general settings, such as title, description, and theme color.
+- **Analytics:** Add your Google Analytics tracking code to your system.
+- **SEO Meta:** Manage your SEO meta tags, such as title, description, and keywords.
+- **Email:** Manage your email settings, such as SMTP server, port, and credentials.
+- **Social Media Network:** Manage your social media network links, such as Facebook, Twitter, and Instagram.
+- **Support**: [Laravel 11](https://laravel.com) and [Filament 3.x](https://filamentphp.com)
 
 ## Installation
 
