@@ -4,6 +4,7 @@ namespace Joaopaulolndev\FilamentGeneralSettings;
 
 use Filament\Contracts\Plugin;
 use Filament\Panel;
+use Joaopaulolndev\FilamentGeneralSettings\Middleware\FilamentGeneralSettingsMiddleware;
 use Joaopaulolndev\FilamentGeneralSettings\Pages\GeneralSettingsPage;
 
 class FilamentGeneralSettingsPlugin implements Plugin
@@ -16,7 +17,8 @@ class FilamentGeneralSettingsPlugin implements Plugin
     public function register(Panel $panel): void
     {
         $panel
-            ->pages($this->preparePages());
+            ->pages($this->preparePages())
+            ->authMiddleware([FilamentGeneralSettingsMiddleware::class]);
     }
 
     protected function preparePages(): array
