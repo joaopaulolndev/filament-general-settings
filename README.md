@@ -1,4 +1,4 @@
-# This is my package filament-general-settings
+# Filament General Settings
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/joaopaulolndev/filament-general-settings.svg?style=flat-square)](https://packagist.org/packages/joaopaulolndev/filament-general-settings)
 [![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/joaopaulolndev/filament-general-settings/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/joaopaulolndev/filament-general-settings/actions?query=workflow%3Arun-tests+branch%3Amain)
@@ -7,7 +7,10 @@
 
 
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
+Create really fast and easily general settings for your Laravel Filament project.
+
+## Features & Screenshots
+
 
 ## Installation
 
@@ -40,14 +43,21 @@ This is the contents of the published config file:
 
 ```php
 return [
+    'show_application_tab' => true,
+    'show_analytics_tab' => true,
+    'show_seo_tab' => true,
+    'show_email_tab' => true,
+    'show_social_networks_tab' => true,
+    'expiration_cache_config_time' => 60,
 ];
 ```
 
 ## Usage
-
+Add in AdminPanelProvider.php
 ```php
-$filamentGeneralSettings = new Joaopaulolndev\FilamentGeneralSettings();
-echo $filamentGeneralSettings->echoPhrase('Hello, Joaopaulolndev!');
+->plugins([
+    FilamentGeneralSettingsPlugin::make()
+])
 ```
 
 ## Testing
