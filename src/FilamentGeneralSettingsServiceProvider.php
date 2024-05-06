@@ -148,7 +148,7 @@ class FilamentGeneralSettingsServiceProvider extends PackageServiceProvider
     protected function getMigrations(): array
     {
         return [
-            'create_filament-general-settings_table',
+            'create_general-settings_table',
         ];
     }
 }
