@@ -3,6 +3,7 @@
 namespace Joaopaulolndev\FilamentGeneralSettings\Pages;
 
 use Filament\Actions;
+use Filament\Facades\Filament;
 use Filament\Forms\Components\Tabs;
 use Filament\Forms\Form;
 use Filament\Notifications\Notification;
@@ -10,7 +11,6 @@ use Filament\Pages\Page;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
-use Joaopaulolndev\FilamentGeneralSettings\FilamentGeneralSettingsPlugin;
 use Joaopaulolndev\FilamentGeneralSettings\Forms\AnalyticsFieldsForm;
 use Joaopaulolndev\FilamentGeneralSettings\Forms\ApplicationFieldsForm;
 use Joaopaulolndev\FilamentGeneralSettings\Forms\EmailFieldsForm;
@@ -20,7 +20,6 @@ use Joaopaulolndev\FilamentGeneralSettings\Helpers\EmailDataHelper;
 use Joaopaulolndev\FilamentGeneralSettings\Mail\TestMail;
 use Joaopaulolndev\FilamentGeneralSettings\Models\GeneralSetting;
 use Joaopaulolndev\FilamentGeneralSettings\Services\MailSettingsService;
-use Filament\Facades\Filament;
 
 class GeneralSettingsPage extends Page
 {

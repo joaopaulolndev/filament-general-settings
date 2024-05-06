@@ -2,13 +2,12 @@
 
 namespace Joaopaulolndev\FilamentGeneralSettings;
 
+use Closure;
 use Filament\Contracts\Plugin;
 use Filament\Panel;
+use Filament\Support\Concerns\EvaluatesClosures;
 use Joaopaulolndev\FilamentGeneralSettings\Middleware\FilamentGeneralSettingsMiddleware;
 use Joaopaulolndev\FilamentGeneralSettings\Pages\GeneralSettingsPage;
-use Closure;
-use Filament\Support\Concerns\EvaluatesClosures;
-use Filament\Facades\Filament;
 
 class FilamentGeneralSettingsPlugin implements Plugin
 {
