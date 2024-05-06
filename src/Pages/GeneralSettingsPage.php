@@ -31,6 +31,11 @@ class GeneralSettingsPage extends Page
         return __('filament-general-settings::default.title');
     }
 
+    public static function getNavigationLabel(): string
+    {
+        return __('filament-general-settings::default.title');
+    }
+
     public ?array $data = [];
 
     public function mount(): void
