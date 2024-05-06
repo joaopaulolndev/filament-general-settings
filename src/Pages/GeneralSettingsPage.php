@@ -15,6 +15,7 @@ use Joaopaulolndev\FilamentGeneralSettings\Forms\ApplicationFieldsForm;
 use Joaopaulolndev\FilamentGeneralSettings\Forms\EmailFieldsForm;
 use Joaopaulolndev\FilamentGeneralSettings\Forms\SeoFieldsForm;
 use Joaopaulolndev\FilamentGeneralSettings\Forms\SocialNetworkFieldsForm;
+use Joaopaulolndev\FilamentGeneralSettings\Helpers\EmailDataHelper;
 use Joaopaulolndev\FilamentGeneralSettings\Mail\TestMail;
 use Joaopaulolndev\FilamentGeneralSettings\Models\GeneralSetting;
 use Joaopaulolndev\FilamentGeneralSettings\Services\MailSettingsService;
@@ -35,12 +36,11 @@ class GeneralSettingsPage extends Page
     public function mount(): void
     {
         $this->data = GeneralSetting::first()?->toArray();
-        $this->getEmailConfigFromDatabase();
+        $this->data = EmailDataHelper::getEmailConfigFromDatabase($this->data);
     }
 
     public function form(Form $form): Form
     {
-
         $arrTabs = [];
 
         if (config('filament-general-settings.show_application_tab')) {
@@ -90,46 +90,6 @@ class GeneralSettingsPage extends Page
             ->statePath('data');
     }
 
-    public function getEmailConfigFromDatabase(): void
-    {
-        $this->data['default_email_provider'] = $this->data['email_settings']['default_email_provider'] ?? 'smtp';
-        $this->data['smtp_host'] = $this->data['email_settings']['smtp_host'] ?? null;
-        $this->data['smtp_port'] = $this->data['email_settings']['smtp_port'] ?? null;
-        $this->data['smtp_encryption'] = $this->data['email_settings']['smtp_encryption'] ?? null;
-        $this->data['smtp_timeout'] = $this->data['email_settings']['smtp_timeout'] ?? null;
-        $this->data['smtp_username'] = $this->data['email_settings']['smtp_username'] ?? null;
-        $this->data['smtp_password'] = $this->data['email_settings']['smtp_password'] ?? null;
-        $this->data['mailgun_domain'] = $this->data['email_settings']['mailgun_domain'] ?? null;
-        $this->data['mailgun_secret'] = $this->data['email_settings']['mailgun_secret'] ?? null;
-        $this->data['mailgun_endpoint'] = $this->data['email_settings']['mailgun_endpoint'] ?? null;
-        $this->data['postmark_token'] = $this->data['email_settings']['postmark_token'] ?? null;
-        $this->data['amazon_ses_key'] = $this->data['email_settings']['amazon_ses_key'] ?? null;
-        $this->data['amazon_ses_secret'] = $this->data['email_settings']['amazon_ses_secret'] ?? null;
-        $this->data['amazon_ses_region'] = $this->data['email_settings']['amazon_ses_region'] ?? null;
-    }
-
-    public function setEmailConfigToDatabase($data): mixed
-    {
-        $data['email_settings'] = [
-            'default_email_provider' => $data['default_email_provider'],
-            'smtp_host' => $data['smtp_host'] ?? null,
-            'smtp_port' => $data['smtp_port'] ?? null,
-            'smtp_encryption' => $data['smtp_encryption'] ?? null,
-            'smtp_timeout' => $data['smtp_timeout'] ?? null,
-            'smtp_username' => $data['smtp_username'] ?? null,
-            'smtp_password' => $data['smtp_password'] ?? null,
-            'mailgun_domain' => $data['mailgun_domain'] ?? null,
-            'mailgun_secret' => $data['mailgun_secret'] ?? null,
-            'mailgun_endpoint' => $data['mailgun_endpoint'] ?? null,
-            'postmark_token' => $data['postmark_token'] ?? null,
-            'amazon_ses_key' => $data['amazon_ses_key'] ?? null,
-            'amazon_ses_secret' => $data['amazon_ses_secret'] ?? null,
-            'amazon_ses_region' => $data['amazon_ses_region'] ?? null,
-        ];
-
-        return $data;
-    }
-
     protected function getFormActions(): array
     {
         return [
@@ -143,17 +103,12 @@ class GeneralSettingsPage extends Page
     public function update(): void
     {
         $data = $this->form->getState();
-        $data = $this->setEmailConfigToDatabase($data);
+        $data = EmailDataHelper::setEmailConfigToDatabase($data);
 
         GeneralSetting::updateOrCreate([], $data);
-
         Cache::forget('general_settings');
 
-        Notification::make()
-            ->title(__('filament-general-settings::default.settings_saved'))
-            ->success()
-            ->send();
-
+        $this->successNotification(__('filament-general-settings::default.settings_saved'));
         redirect(request()?->header('Referer'));
     }
 
@@ -172,19 +127,30 @@ class GeneralSettingsPage extends Page
                     'body' => 'This is for testing email using smtp.',
                 ]));
         } catch (\Exception $e) {
-            Log::error('[EMAIL] ' . $e->getMessage());
-            Notification::make()
-                ->title(__('filament-general-settings::default.test_email_error'))
-                ->body($e->getMessage())
-                ->danger()
-                ->send();
+            $this->errorNotification(__('filament-general-settings::default.test_email_error'), $e->getMessage());
 
             return;
         }
 
+        $this->successNotification(__('filament-general-settings::default.test_email_success') . $email);
+    }
+
+    private function successNotification(string $title): void
+    {
         Notification::make()
-            ->title(__('filament-general-settings::default.test_email_success') . $email)
+            ->title($title)
             ->success()
+            ->send();
+    }
+
+    private function errorNotification(string $title, string $body): void
+    {
+        Log::error('[EMAIL] ' . $body);
+
+        Notification::make()
+            ->title($title)
+            ->danger()
+            ->body($body)
             ->send();
     }
 }
