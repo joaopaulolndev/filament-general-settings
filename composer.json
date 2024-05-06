@@ -1,6 +1,6 @@
 {
     "name": "joaopaulolndev/filament-general-settings",
-    "description": "This is my package to manage general settings",
+    "description": "Filament package to manage general settings",
     "keywords": [
         "joaopaulolndev",
         "laravel",
