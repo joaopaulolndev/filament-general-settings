@@ -20,6 +20,11 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Joaopaulolndev\FilamentGeneralSettings\Enums\EmailProviderEnum;
+use Joaopaulolndev\FilamentGeneralSettings\Forms\AnalyticsFieldsForm;
+use Joaopaulolndev\FilamentGeneralSettings\Forms\ApplicationFieldsForm;
+use Joaopaulolndev\FilamentGeneralSettings\Forms\EmailFieldsForm;
+use Joaopaulolndev\FilamentGeneralSettings\Forms\SeoFieldsForm;
+use Joaopaulolndev\FilamentGeneralSettings\Forms\SocialNetworkFieldsForm;
 use Joaopaulolndev\FilamentGeneralSettings\Mail\TestMail;
 use Joaopaulolndev\FilamentGeneralSettings\Models\GeneralSetting;
 use Joaopaulolndev\FilamentGeneralSettings\Services\MailSettingsService;
@@ -45,208 +50,54 @@ class GeneralSettingsPage extends Page
 
     public function form(Form $form): Form
     {
+
+        $arrTabs = [];
+
+        if (config('filament-general-settings.show_application_tab')) {
+            $arrTabs[] = Tabs\Tab::make('Application Tab')
+                ->label(__('filament-general-settings::default.application'))
+                ->icon('heroicon-o-tv')
+                ->schema(ApplicationFieldsForm::get())
+                ->columns(3);
+        }
+
+        if (config('filament-general-settings.show_analytics_tab')) {
+            $arrTabs[] = Tabs\Tab::make('Analytics Tab')
+                ->label(__('filament-general-settings::default.analytics'))
+                ->icon('heroicon-o-globe-alt')
+                ->schema(AnalyticsFieldsForm::get());
+        }
+
+        if (config('filament-general-settings.show_seo_tab')) {
+            $arrTabs[] = Tabs\Tab::make('Seo Tab')
+                ->label(__('filament-general-settings::default.seo'))
+                ->icon('heroicon-o-window')
+                ->schema(SeoFieldsForm::get($this->data))
+                ->columns(1);
+        }
+
+        if (config('filament-general-settings.show_email_tab')) {
+            $arrTabs[] = Tabs\Tab::make('Email Tab')
+                ->label(__('filament-general-settings::default.email'))
+                ->icon('heroicon-o-envelope')
+                ->schema(EmailFieldsForm::get())
+                ->columns(3);
+        }
+
+        if (config('filament-general-settings.show_social_networks_tab')) {
+            $arrTabs[] = Tabs\Tab::make('Social Network Tab')
+                ->label(__('filament-general-settings::default.social_networks'))
+                ->icon('heroicon-o-heart')
+                ->schema(SocialNetworkFieldsForm::get())
+                ->columns(2);
+        }
+
         return $form
             ->schema([
                 Tabs::make('Tabs')
-                    ->tabs([
-                        Tabs\Tab::make('Application Tab')
-                            ->label(__('filament-general-settings::default.application'))
-                            ->icon('heroicon-o-tv')
-                            ->schema($this->getApplicationFields())
-                            ->columns(3),
-                        Tabs\Tab::make('Analytics Tab')
-                            ->label(__('filament-general-settings::default.analytics'))
-                            ->icon('heroicon-o-globe-alt')
-                            ->schema($this->getAnalyticsFields()),
-                        Tabs\Tab::make('Seo Tab')
-                            ->label(__('filament-general-settings::default.seo'))
-                            ->icon('heroicon-o-window')
-                            ->schema($this->getSeoFields())
-                            ->columns(1),
-                        Tabs\Tab::make('Email Tab')
-                            ->label(__('filament-general-settings::default.email'))
-                            ->icon('heroicon-o-envelope')
-                            ->schema($this->getEmailFields())
-                            ->columns(3),
-                        Tabs\Tab::make('Social Network Tab')
-                            ->label(__('filament-general-settings::default.social_networks'))
-                            ->icon('heroicon-o-heart')
-                            ->schema($this->getSocialNetworkFields())
-                            ->columns(2),
-                    ]),
+                    ->tabs($arrTabs),
             ])
             ->statePath('data');
-    }
-
-    private function getApplicationFields(): array
-    {
-        return [
-            TextInput::make('site_name')
-                ->label(__('filament-general-settings::default.site_name'))
-                ->autofocus()
-                ->required()
-                ->columnSpanFull(),
-            Textarea::make('site_description')
-                ->label(__('filament-general-settings::default.site_description'))
-                ->columnSpanFull(),
-            TextInput::make('support_email')
-                ->label(__('filament-general-settings::default.support_email'))
-                ->prefixIcon('heroicon-o-envelope'),
-            TextInput::make('support_phone')
-                ->prefixIcon('heroicon-o-phone')
-                ->label(__('filament-general-settings::default.support_phone')),
-            ColorPicker::make('theme_color')
-                ->label(__('filament-general-settings::default.theme_color'))
-                ->prefixIcon('heroicon-o-swatch')
-                ->formatStateUsing(fn (?string $state): string => $state ?? config('filament.theme.colors.primary'))
-                ->helperText(__('filament-general-settings::default.theme_color_helper_text')),
-        ];
-    }
-
-    private function getEmailFields(): array
-    {
-        return [
-            Forms\Components\Grid::make()
-                ->schema([
-                    Section::make([
-                        Select::make('default_email_provider')
-                            ->label(__('filament-general-settings::default.default_email_provider'))
-                            ->native(false)
-                            ->allowHtml()
-                            ->preload()
-                            ->options(function () {
-                                $options = [];
-                                foreach (EmailProviderEnum::options() as $key => $value) {
-                                    //@todo: need to show provider logo
-                                    $options[strtolower($value)] = $key;
-                                }
-
-                                return $options;
-                            })
-                            ->helperText(__('filament-general-settings::default.default_email_provider_helper_text'))
-                            ->live()
-                            ->columnSpanFull(),
-                        Forms\Components\Group::make()
-                            ->schema([
-                                TextInput::make('smtp_host')
-                                    ->label(__('filament-general-settings::default.host')),
-                                TextInput::make('smtp_port')
-                                    ->label(__('filament-general-settings::default.port')),
-                                Select::make('smtp_encryption')
-                                    ->label(__('filament-general-settings::default.encryption'))
-                                    ->options([
-                                        'ssl' => 'SSL',
-                                        'tls' => 'TLS',
-                                    ]),
-                                TextInput::make('smtp_timeout')
-                                    ->label(__('filament-general-settings::default.timeout')),
-                                TextInput::make('smtp_username')
-                                    ->label(__('filament-general-settings::default.username')),
-                                TextInput::make('smtp_password')
-                                    ->label(__('filament-general-settings::default.password')),
-                            ])
-                            ->columns(2)
-                            ->visible(fn ($state) => $state['default_email_provider'] === 'smtp'),
-                        Forms\Components\Group::make()
-                            ->schema([
-                                TextInput::make('mailgun_domain')
-                                    ->label(__('filament-general-settings::default.mailgun_domain')),
-                                TextInput::make('mailgun_secret')
-                                    ->label(__('filament-general-settings::default.mailgun_secret')),
-                                TextInput::make('mailgun_endpoint')
-                                    ->label(__('filament-general-settings::default.mailgun_endpoint')),
-                            ])
-                            ->columns(1)
-                            ->visible(fn ($state) => $state['default_email_provider'] === 'mailgun'),
-                        Forms\Components\Group::make()
-                            ->schema([
-                                TextInput::make('postmark_token')
-                                    ->label(__('filament-general-settings::default.postmark_token')),
-                            ])
-                            ->columns(1)
-                            ->visible(fn ($state) => $state['default_email_provider'] === 'postmark'),
-                        Forms\Components\Group::make()
-                            ->schema([
-                                TextInput::make('amazon_ses_key')
-                                    ->label(__('filament-general-settings::default.amazon_ses_key')),
-                                TextInput::make('amazon_ses_secret')
-                                    ->label(__('filament-general-settings::default.amazon_ses_secret')),
-                                TextInput::make('amazon_ses_region')
-                                    ->label(__('filament-general-settings::default.amazon_ses_region'))
-                                    ->default('us-east-1'),
-                            ])
-                            ->columns(1)
-                            ->visible(fn ($state) => $state['default_email_provider'] === 'ses'),
-                    ]),
-                ])
-                ->columnSpan(['lg' => 2]),
-            Forms\Components\Grid::make()
-                ->schema([
-                    Section::make([
-                        TextInput::make('email_from_name')
-                            ->label(__('filament-general-settings::default.email_from_name'))
-                            ->helperText(__('filament-general-settings::default.email_from_name_helper_text')),
-                        TextInput::make('email_from_address')
-                            ->label(__('filament-general-settings::default.email_from_address'))
-                            ->helperText(__('filament-general-settings::default.email_from_address_helper_text'))
-                            ->email(),
-                    ]),
-                    Section::make()
-                        ->schema([
-                            TextInput::make('mail_to')
-                                ->label(fn () => __('filament-general-settings::default.mail_to'))
-                                ->hiddenLabel()
-                                ->placeholder(fn () => __('filament-general-settings::default.mail_to'))
-                                ->reactive(),
-                            Forms\Components\Actions::make([
-                                Forms\Components\Actions\Action::make('Send Test Mail')
-                                    ->label(fn () => __('filament-general-settings::default.send_test_email'))
-                                    ->disabled(fn ($state) => empty($state['mail_to']))
-                                    ->action('sendTestMail')
-                                    ->color('warning')
-                                    ->icon('heroicon-o-paper-airplane'),
-                            ])->fullWidth(),
-                        ]),
-                ])
-                ->columnSpan(['lg' => 1]),
-        ];
-    }
-
-    private function getAnalyticsFields(): array
-    {
-        return [
-            TextInput::make('google_analytics_id')
-                ->label(__('filament-general-settings::default.google_analytics_id'))
-                ->placeholder('UA-123456789-1'),
-            Textarea::make('posthog_html_snippet')
-                ->label(__('filament-general-settings::default.posthog_html_snippet'))
-                ->placeholder('<script src=\'https://app.posthog.com/123456789.js\'></script>'),
-        ];
-    }
-
-    private function getSeoFields(): array
-    {
-        return [
-            ViewField::make('seo_description')
-                ->hiddenLabel()
-                ->view('filament-general-settings::forms.components.seo-description'),
-            Split::make([
-                Section::make([
-                    TextInput::make('seo_title')
-                        ->label(__('filament-general-settings::default.seo_title')),
-                    TextInput::make('seo_keywords')
-                        ->label(__('filament-general-settings::default.seo_keywords'))
-                        ->helperText(__('filament-general-settings::default.seo_keywords_helper_text')),
-                    KeyValue::make('seo_metadata')
-                        ->label(__('filament-general-settings::default.seo_metadata')),
-                ]),
-                Section::make([
-                    ViewField::make('seo_preview')
-                        ->hiddenLabel()
-                        ->view('filament-general-settings::forms.components.seo-preview', $this->data),
-                ]),
-            ]),
-        ];
     }
 
     public function getEmailConfigFromDatabase(): void
@@ -314,36 +165,6 @@ class GeneralSettingsPage extends Page
             ->send();
 
         redirect(request()?->header('Referer'));
-    }
-
-    private function getSocialNetworkFields(): array
-    {
-        return [
-            TextInput::make('whatsapp')
-                ->label(__('WhatsApp'))
-                //->prefixIcon('fab-whatsapp')
-                ->placeholder('https://www.facebook.com/'),
-            TextInput::make('facebook')
-                ->label(__('Facebook'))
-                //->prefixIcon('fab-facebook-f')
-                ->placeholder('https://www.facebook.com/'),
-            TextInput::make('instagram')
-                ->label(__('Instagram'))
-                //->prefixIcon('fab-instagram')
-                ->placeholder('https://www.instagram.com/'),
-            TextInput::make('x_twitter')
-                ->label(__('Twitter'))
-                //->prefixIcon('fab-x-twitter')
-                ->placeholder('https://www.twitter.com/'),
-            TextInput::make('youtube')
-                ->label(__('YouTube'))
-                //->prefixIcon('fab-youtube')
-                ->placeholder('https://www.youtube.com/'),
-            TextInput::make('linkedin')
-                ->label(__('LinkedIn'))
-                //->prefixIcon('fab-linkedin-in')
-                ->placeholder('https://www.linkedin.com/'),
-        ];
     }
 
     public function sendTestMail(MailSettingsService $mailSettingsService): void
