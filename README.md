@@ -10,7 +10,20 @@
 Create really fast and easily general settings for your Laravel Filament project.
 
 ## Features & Screenshots
+Application Feature
+![Screenshot of Application Feature](./art/general_settings_1.png)
 
+Analytics Feature
+![Screenshot of Application Feature](./art/general_settings_2.png)
+
+SEO Feature
+![Screenshot of Application Feature](./art/general_settings_3.png)
+
+Email Feature
+![Screenshot of Application Feature](./art/general_settings_4.png)
+
+Social Network Feature
+![Screenshot of Application Feature](./art/general_settings_5.png)
 
 ## Installation
 
