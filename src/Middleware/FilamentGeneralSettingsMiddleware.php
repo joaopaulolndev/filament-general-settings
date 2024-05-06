@@ -17,7 +17,7 @@ class FilamentGeneralSettingsMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $settings = GeneralSetting::first();
+        $settings = GeneralSetting::firstOrCreate([]);
 
         if ($settings->theme_color) {
             FilamentColor::register([
