@@ -14,7 +14,7 @@ class GeneralSettingsService
 
     public function get(): ?GeneralSetting
     {
-        return Cache::remember('general_settings', 60, callback: function () {
+        return Cache::remember('general_settings', config('filament-general-settings.expiration_cache_config_time'), callback: function () {
             return $this->generalSetting->first();
         });
     }
