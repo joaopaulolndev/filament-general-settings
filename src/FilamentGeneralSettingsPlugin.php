@@ -6,9 +6,16 @@ use Filament\Contracts\Plugin;
 use Filament\Panel;
 use Joaopaulolndev\FilamentGeneralSettings\Middleware\FilamentGeneralSettingsMiddleware;
 use Joaopaulolndev\FilamentGeneralSettings\Pages\GeneralSettingsPage;
+use Closure;
+use Filament\Support\Concerns\EvaluatesClosures;
+use Filament\Facades\Filament;
 
 class FilamentGeneralSettingsPlugin implements Plugin
 {
+    use EvaluatesClosures;
+
+    public Closure | bool $access = true;
+
     public function getId(): string
     {
         return 'filament-general-settings';
@@ -45,5 +52,17 @@ class FilamentGeneralSettingsPlugin implements Plugin
         $plugin = filament(app(static::class)->getId());
 
         return $plugin;
+    }
+
+    public function canAccess(Closure | bool $value = true): static
+    {
+        $this->access = $value;
+
+        return $this;
+    }
+
+    public function getCanAccess(): bool
+    {
+        return $this->evaluate($this->access);
     }
 }

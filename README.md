@@ -72,6 +72,15 @@ Add in AdminPanelProvider.php
     FilamentGeneralSettingsPlugin::make()
 ])
 ```
+if you want to show for specific user, you can use the method ->canAccess(fn($user) => $user->isAdmin())
+```php
+->plugins([
+    FilamentGeneralSettingsPlugin::make()
+        ->canAccess(fn() => auth()->user()->id === 1),
+    ])
+```
+
+```php
 
 ## Testing
 

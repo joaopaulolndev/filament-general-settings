@@ -10,6 +10,7 @@ use Filament\Pages\Page;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
+use Joaopaulolndev\FilamentGeneralSettings\FilamentGeneralSettingsPlugin;
 use Joaopaulolndev\FilamentGeneralSettings\Forms\AnalyticsFieldsForm;
 use Joaopaulolndev\FilamentGeneralSettings\Forms\ApplicationFieldsForm;
 use Joaopaulolndev\FilamentGeneralSettings\Forms\EmailFieldsForm;
@@ -19,12 +20,20 @@ use Joaopaulolndev\FilamentGeneralSettings\Helpers\EmailDataHelper;
 use Joaopaulolndev\FilamentGeneralSettings\Mail\TestMail;
 use Joaopaulolndev\FilamentGeneralSettings\Models\GeneralSetting;
 use Joaopaulolndev\FilamentGeneralSettings\Services\MailSettingsService;
+use Filament\Facades\Filament;
 
 class GeneralSettingsPage extends Page
 {
     protected static ?string $navigationIcon = 'heroicon-o-adjustments-vertical';
 
     protected static string $view = 'filament-general-settings::filament.pages.general-settings-page';
+
+    public static function canAccess(): bool
+    {
+        $plugin = Filament::getCurrentPanel()?->getPlugin('filament-general-settings');
+
+        return $plugin->getCanAccess();
+    }
 
     public function getTitle(): string
     {
