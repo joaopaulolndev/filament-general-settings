@@ -15,6 +15,8 @@ class FilamentGeneralSettingsPlugin implements Plugin
 
     public Closure | bool $access = true;
 
+    public Closure | int $sort = 100;
+
     public function getId(): string
     {
         return 'filament-general-settings';
@@ -51,6 +53,18 @@ class FilamentGeneralSettingsPlugin implements Plugin
         $plugin = filament(app(static::class)->getId());
 
         return $plugin;
+    }
+
+    public function setSort(Closure | int $value = 100): static
+    {
+        $this->sort = $value;
+
+        return $this;
+    }
+
+    public function getSort(): int
+    {
+        return $this->evaluate($this->sort);
     }
 
     public function canAccess(Closure | bool $value = true): static

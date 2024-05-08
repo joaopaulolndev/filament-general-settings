@@ -66,11 +66,12 @@ Add in AdminPanelProvider.php
     FilamentGeneralSettingsPlugin::make()
 ])
 ```
-if you want to show for specific user, you can use the method ->canAccess(fn($user) => $user->isAdmin())
+if you want to show for specific user or sort in the menu
 ```php
 ->plugins([
     FilamentGeneralSettingsPlugin::make()
         ->canAccess(fn() => auth()->user()->id === 1),
+        ->setSort(3)
     ])
 ```
 

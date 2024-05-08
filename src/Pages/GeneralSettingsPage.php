@@ -27,6 +27,13 @@ class GeneralSettingsPage extends Page
 
     protected static string $view = 'filament-general-settings::filament.pages.general-settings-page';
 
+    public static function getNavigationSort(): ?int
+    {
+        $plugin = Filament::getCurrentPanel()?->getPlugin('filament-general-settings');
+
+        return $plugin->getSort();
+    }
+
     public static function canAccess(): bool
     {
         $plugin = Filament::getCurrentPanel()?->getPlugin('filament-general-settings');
@@ -49,6 +56,7 @@ class GeneralSettingsPage extends Page
     public function mount(): void
     {
         $this->data = GeneralSetting::first()?->toArray();
+        $this->data = $this->data ?: [];
         $this->data = EmailDataHelper::getEmailConfigFromDatabase($this->data);
     }
 
