@@ -17,6 +17,7 @@ use Joaopaulolndev\FilamentGeneralSettings\Forms\EmailFieldsForm;
 use Joaopaulolndev\FilamentGeneralSettings\Forms\SeoFieldsForm;
 use Joaopaulolndev\FilamentGeneralSettings\Forms\SocialNetworkFieldsForm;
 use Joaopaulolndev\FilamentGeneralSettings\Helpers\EmailDataHelper;
+use Joaopaulolndev\FilamentGeneralSettings\Helpers\SocialNetworkDataHelper;
 use Joaopaulolndev\FilamentGeneralSettings\Mail\TestMail;
 use Joaopaulolndev\FilamentGeneralSettings\Models\GeneralSetting;
 use Joaopaulolndev\FilamentGeneralSettings\Services\MailSettingsService;
@@ -58,6 +59,7 @@ class GeneralSettingsPage extends Page
         $this->data = GeneralSetting::first()?->toArray();
         $this->data = $this->data ?: [];
         $this->data = EmailDataHelper::getEmailConfigFromDatabase($this->data);
+        $this->data = SocialNetworkDataHelper::getSocialNetworkFromDatabase($this->data);
     }
 
     public function form(Form $form): Form
@@ -125,6 +127,7 @@ class GeneralSettingsPage extends Page
     {
         $data = $this->form->getState();
         $data = EmailDataHelper::setEmailConfigToDatabase($data);
+        $data = SocialNetworkDataHelper::setSocialNetworkToDatabase($data);
 
         GeneralSetting::updateOrCreate([], $data);
         Cache::forget('general_settings');

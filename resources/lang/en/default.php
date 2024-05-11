@@ -39,4 +39,5 @@ return [
     'settings_saved' => 'Settings saved successfully.',
     'test_email_error' => 'An error occurred while sending the test email. Please check your email settings and try again.',
     'test_email_success' => 'Test email sent successfully.',
+    'social_network_helper_text' => 'Leave it empty to hide the social network icon.'
 ];

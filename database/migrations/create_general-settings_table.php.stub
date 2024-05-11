@@ -20,12 +20,7 @@ return new class extends Migration
             $table->string('seo_title')->nullable();
             $table->string('seo_keywords')->nullable();
             $table->json('seo_metadata')->nullable();
-            $table->string('whatsapp')->nullable();
-            $table->string('facebook')->nullable();
-            $table->string('instagram')->nullable();
-            $table->string('x_twitter')->nullable();
-            $table->string('linkedin')->nullable();
-            $table->string('youtube')->nullable();
+            $table->json('social_network')->nullable();
             $table->json('email_settings')->nullable();
             $table->string('email_from_address')->nullable();
             $table->string('email_from_name')->nullable();

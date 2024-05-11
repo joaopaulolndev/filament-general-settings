@@ -17,12 +17,7 @@ class GeneralSetting extends Model
         'seo_title',
         'seo_keywords',
         'seo_metadata',
-        'whatsapp',
-        'facebook',
-        'instagram',
-        'x_twitter',
-        'linkedin',
-        'youtube',
+        'social_network',
         'email_settings',
         'email_from_name',
         'email_from_address',
@@ -31,5 +26,6 @@ class GeneralSetting extends Model
     protected $casts = [
         'seo_metadata' => 'array',
         'email_settings' => 'array',
+        'social_network' => 'array',
     ];
 }
