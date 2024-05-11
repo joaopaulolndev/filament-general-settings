@@ -14,6 +14,7 @@ class SocialNetworkFieldsForm
             $fields[] = TextInput::make($key)
                 ->label(ucfirst(strtolower($value)));
         }
+
         return $fields;
     }
 }

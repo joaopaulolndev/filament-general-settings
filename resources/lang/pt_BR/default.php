@@ -39,5 +39,5 @@ return [
     'settings_saved' => 'Configurações salvas com sucesso.',
     'test_email_error' => 'Ocorreu um erro ao enviar o email de teste. Verifique suas configurações de email e tente novamente.',
     'test_email_success' => 'Email de teste enviado com sucesso.',
-    'social_network_helper_text' => 'Deixe em branco para ocultar o ícone da rede social.'
+    'social_network_helper_text' => 'Deixe em branco para ocultar o ícone da rede social.',
 ];
