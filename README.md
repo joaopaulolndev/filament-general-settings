@@ -77,7 +77,11 @@ if you want to show for specific user or sort in the menu
 ->plugins([
     FilamentGeneralSettingsPlugin::make()
         ->canAccess(fn() => auth()->user()->id === 1)
-        ->setSort(3),
+        ->setSort(3)
+        ->setIcon('heroicon-o-cog')
+        ->setNavigationGroup('Settings')
+        ->setTitle('General Settings')
+        ->setNavigationLabel('General Settings'),
     ])
 ```
 
