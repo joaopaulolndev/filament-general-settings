@@ -46,6 +46,12 @@ Optionally, you can publish the views using
 php artisan vendor:publish --tag="filament-general-settings-views"
 ```
 
+Optionally, you can publish the translations using
+
+```bash
+php artisan vendor:publish --tag="filament-general-settings-translations"
+```
+
 This is the contents of the published config file:
 
 ```php
