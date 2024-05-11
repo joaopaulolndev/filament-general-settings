@@ -70,8 +70,8 @@ if you want to show for specific user or sort in the menu
 ```php
 ->plugins([
     FilamentGeneralSettingsPlugin::make()
-        ->canAccess(fn() => auth()->user()->id === 1),
-        ->setSort(3)
+        ->canAccess(fn() => auth()->user()->id === 1)
+        ->setSort(3),
     ])
 ```
 
