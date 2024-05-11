@@ -27,7 +27,6 @@ class GeneralSettingsPage extends Page
     protected static string $view = 'filament-general-settings::filament.pages.general-settings-page';
 
     /**
-     * @return string|null
      * @throws \Exception
      */
     public static function getNavigationGroup(): ?string
@@ -38,7 +37,6 @@ class GeneralSettingsPage extends Page
     }
 
     /**
-     * @return string|null
      * @throws \Exception
      */
     public static function getNavigationIcon(): ?string

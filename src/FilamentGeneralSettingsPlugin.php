@@ -94,9 +94,9 @@ class FilamentGeneralSettingsPlugin implements Plugin
         return $this;
     }
 
-    public function getIcon(): string|null
+    public function getIcon(): ?string
     {
-        return !empty($this->icon) ? $this->evaluate($this->icon) : null;
+        return ! empty($this->icon) ? $this->evaluate($this->icon) : null;
     }
 
     public function setNavigationGroup(Closure | string $value = ''): static
@@ -106,9 +106,9 @@ class FilamentGeneralSettingsPlugin implements Plugin
         return $this;
     }
 
-    public function getNavigationGroup(): string|null
+    public function getNavigationGroup(): ?string
     {
-        return !empty($this->navigationGroup) ? $this->evaluate($this->navigationGroup) : null;
+        return ! empty($this->navigationGroup) ? $this->evaluate($this->navigationGroup) : null;
     }
 
     public function setTitle(Closure | string $value = ''): static
@@ -118,9 +118,9 @@ class FilamentGeneralSettingsPlugin implements Plugin
         return $this;
     }
 
-    public function getTitle(): string|null
+    public function getTitle(): ?string
     {
-        return !empty($this->title) ? $this->evaluate($this->title) : null;
+        return ! empty($this->title) ? $this->evaluate($this->title) : null;
     }
 
     public function setNavigationLabel(Closure | string $value = ''): static
@@ -130,8 +130,8 @@ class FilamentGeneralSettingsPlugin implements Plugin
         return $this;
     }
 
-    public function getNavigationLabel(): string|null
+    public function getNavigationLabel(): ?string
     {
-        return !empty($this->navigationLabel) ? $this->evaluate($this->navigationLabel) : null;
+        return ! empty($this->navigationLabel) ? $this->evaluate($this->navigationLabel) : null;
     }
 }
