@@ -24,9 +24,29 @@ use Joaopaulolndev\FilamentGeneralSettings\Services\MailSettingsService;
 
 class GeneralSettingsPage extends Page
 {
-    protected static ?string $navigationIcon = 'heroicon-o-adjustments-vertical';
-
     protected static string $view = 'filament-general-settings::filament.pages.general-settings-page';
+
+    /**
+     * @return string|null
+     * @throws \Exception
+     */
+    public static function getNavigationGroup(): ?string
+    {
+        $plugin = Filament::getCurrentPanel()?->getPlugin('filament-general-settings');
+
+        return $plugin->getNavigationGroup();
+    }
+
+    /**
+     * @return string|null
+     * @throws \Exception
+     */
+    public static function getNavigationIcon(): ?string
+    {
+        $plugin = Filament::getCurrentPanel()?->getPlugin('filament-general-settings');
+
+        return $plugin->getIcon();
+    }
 
     public static function getNavigationSort(): ?int
     {
@@ -44,12 +64,16 @@ class GeneralSettingsPage extends Page
 
     public function getTitle(): string
     {
-        return __('filament-general-settings::default.title');
+        $plugin = Filament::getCurrentPanel()?->getPlugin('filament-general-settings');
+
+        return $plugin->getTitle() ?? __('filament-general-settings::default.title');
     }
 
     public static function getNavigationLabel(): string
     {
-        return __('filament-general-settings::default.title');
+        $plugin = Filament::getCurrentPanel()?->getPlugin('filament-general-settings');
+
+        return $plugin->getNavigationLabel() ?? __('filament-general-settings::default.title');
     }
 
     public ?array $data = [];

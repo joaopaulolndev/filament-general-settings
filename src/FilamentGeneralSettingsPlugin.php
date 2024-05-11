@@ -17,6 +17,14 @@ class FilamentGeneralSettingsPlugin implements Plugin
 
     public Closure | int $sort = 100;
 
+    public Closure | string $icon = '';
+
+    public Closure | string $navigationGroup = '';
+
+    public Closure | string $title = '';
+
+    public Closure | string $navigationLabel = '';
+
     public function getId(): string
     {
         return 'filament-general-settings';
@@ -77,5 +85,53 @@ class FilamentGeneralSettingsPlugin implements Plugin
     public function getCanAccess(): bool
     {
         return $this->evaluate($this->access);
+    }
+
+    public function setIcon(Closure | string $value = ''): static
+    {
+        $this->icon = $value;
+
+        return $this;
+    }
+
+    public function getIcon(): string|null
+    {
+        return !empty($this->icon) ? $this->evaluate($this->icon) : null;
+    }
+
+    public function setNavigationGroup(Closure | string $value = ''): static
+    {
+        $this->navigationGroup = $value;
+
+        return $this;
+    }
+
+    public function getNavigationGroup(): string|null
+    {
+        return !empty($this->navigationGroup) ? $this->evaluate($this->navigationGroup) : null;
+    }
+
+    public function setTitle(Closure | string $value = ''): static
+    {
+        $this->title = $value;
+
+        return $this;
+    }
+
+    public function getTitle(): string|null
+    {
+        return !empty($this->title) ? $this->evaluate($this->title) : null;
+    }
+
+    public function setNavigationLabel(Closure | string $value = ''): static
+    {
+        $this->navigationLabel = $value;
+
+        return $this;
+    }
+
+    public function getNavigationLabel(): string|null
+    {
+        return !empty($this->navigationLabel) ? $this->evaluate($this->navigationLabel) : null;
     }
 }
