@@ -24,11 +24,11 @@ class EmailFieldsForm
                             ->options(function () {
                                 $options = [];
                                 foreach (EmailProviderEnum::options() as $key => $value) {
-                                    if(file_exists(public_path('vendor/filament-general-settings/images/email-providers/'.strtolower($value).'.svg'))) {
-                                        $options[strtolower($value)] = '<div class="flex gap-2">'.
-                                            ' <img src="'.asset('vendor/filament-general-settings/images/email-providers/'.strtolower($value).'.svg').'"  class="h-5">'
+                                    if (file_exists(public_path('vendor/filament-general-settings/images/email-providers/' . strtolower($value) . '.svg'))) {
+                                        $options[strtolower($value)] = '<div class="flex gap-2">' .
+                                            ' <img src="' . asset('vendor/filament-general-settings/images/email-providers/' . strtolower($value) . '.svg') . '"  class="h-5">'
                                             . $value
-                                            .'</div>';
+                                            . '</div>';
                                     } else {
                                         $options[strtolower($value)] = $value;
                                     }
