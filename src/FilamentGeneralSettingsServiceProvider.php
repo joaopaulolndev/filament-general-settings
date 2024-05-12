@@ -56,6 +56,10 @@ class FilamentGeneralSettingsServiceProvider extends PackageServiceProvider
         if (file_exists($package->basePath('/../resources/views'))) {
             $package->hasViews(static::$viewNamespace);
         }
+
+        if (file_exists($package->basePath('/../resources/dist'))) {
+            $package->hasAssets();
+        }
     }
 
     public function packageRegistered(): void

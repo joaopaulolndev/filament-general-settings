@@ -52,6 +52,15 @@ Optionally, you can publish the translations using
 php artisan vendor:publish --tag="filament-general-settings-translations"
 ```
 
+Optionally, you can publish the assets using. 
+Ex: to show images in default email providers.
+```bash
+php artisan vendor:publish --tag="filament-general-settings-assets"
+```
+
+![Screenshot of Default Email Providers](./art/default_email_provider_images.png)
+
+
 This is the contents of the published config file:
 
 ```php
