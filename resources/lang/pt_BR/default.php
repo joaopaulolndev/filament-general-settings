@@ -40,4 +40,11 @@ return [
     'test_email_error' => 'Ocorreu um erro ao enviar o email de teste. Verifique suas configurações de email e tente novamente.',
     'test_email_success' => 'Email de teste enviado com sucesso.',
     'social_network_helper_text' => 'Deixe em branco para ocultar o ícone da rede social.',
+    'mailgun_domain' => 'Mailgun Domain',
+    'mailgun_secret' => 'Mailgun Secret',
+    'mailgun_endpoint' => 'Mailgun Endpoint',
+    'amazon_ses_key' => 'Amazon SES Key',
+    'amazon_ses_secret' => 'Amazon SES Secret',
+    'amazon_ses_region' => 'Amazon SES Region',
+    'postmark_token' => 'Postmark Token',
 ];
