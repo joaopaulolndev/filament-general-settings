@@ -20,10 +20,11 @@ return new class extends Migration
             $table->string('seo_title')->nullable();
             $table->string('seo_keywords')->nullable();
             $table->json('seo_metadata')->nullable();
-            $table->json('social_network')->nullable();
             $table->json('email_settings')->nullable();
             $table->string('email_from_address')->nullable();
             $table->string('email_from_name')->nullable();
+            $table->json('social_network')->nullable();
+            $table->json('more_configs')->nullable();
             $table->timestamps();
         });
     }

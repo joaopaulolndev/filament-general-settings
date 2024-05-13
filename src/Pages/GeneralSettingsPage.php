@@ -13,11 +13,11 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Joaopaulolndev\FilamentGeneralSettings\Forms\AnalyticsFieldsForm;
 use Joaopaulolndev\FilamentGeneralSettings\Forms\ApplicationFieldsForm;
+use Joaopaulolndev\FilamentGeneralSettings\Forms\CustomForms;
 use Joaopaulolndev\FilamentGeneralSettings\Forms\EmailFieldsForm;
 use Joaopaulolndev\FilamentGeneralSettings\Forms\SeoFieldsForm;
 use Joaopaulolndev\FilamentGeneralSettings\Forms\SocialNetworkFieldsForm;
 use Joaopaulolndev\FilamentGeneralSettings\Helpers\EmailDataHelper;
-use Joaopaulolndev\FilamentGeneralSettings\Helpers\SocialNetworkDataHelper;
 use Joaopaulolndev\FilamentGeneralSettings\Mail\TestMail;
 use Joaopaulolndev\FilamentGeneralSettings\Models\GeneralSetting;
 use Joaopaulolndev\FilamentGeneralSettings\Services\MailSettingsService;
@@ -81,7 +81,6 @@ class GeneralSettingsPage extends Page
         $this->data = GeneralSetting::first()?->toArray();
         $this->data = $this->data ?: [];
         $this->data = EmailDataHelper::getEmailConfigFromDatabase($this->data);
-        $this->data = SocialNetworkDataHelper::getSocialNetworkFromDatabase($this->data);
     }
 
     public function form(Form $form): Form
@@ -124,7 +123,19 @@ class GeneralSettingsPage extends Page
                 ->label(__('filament-general-settings::default.social_networks'))
                 ->icon('heroicon-o-heart')
                 ->schema(SocialNetworkFieldsForm::get())
-                ->columns(2);
+                ->columns(2)
+                ->statePath('social_network');
+        }
+
+        if (config('filament-general-settings.show_custom_tabs')) {
+            foreach (config('filament-general-settings.custom_tabs') as $key => $customTab) {
+                $arrTabs[] = Tabs\Tab::make($customTab['label'])
+                    ->label(__($customTab['label']))
+                    ->icon($customTab['icon'])
+                    ->schema(CustomForms::get($customTab['fields']))
+                    ->columns($customTab['columns'])
+                    ->statePath('more_configs');
+            }
         }
 
         return $form
@@ -149,7 +160,6 @@ class GeneralSettingsPage extends Page
     {
         $data = $this->form->getState();
         $data = EmailDataHelper::setEmailConfigToDatabase($data);
-        $data = SocialNetworkDataHelper::setSocialNetworkToDatabase($data);
 
         GeneralSetting::updateOrCreate([], $data);
         Cache::forget('general_settings');

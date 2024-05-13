@@ -21,11 +21,13 @@ class GeneralSetting extends Model
         'email_settings',
         'email_from_name',
         'email_from_address',
+        'more_configs',
     ];
 
     protected $casts = [
         'seo_metadata' => 'array',
         'email_settings' => 'array',
         'social_network' => 'array',
+        'more_configs' => 'array',
     ];
 }
