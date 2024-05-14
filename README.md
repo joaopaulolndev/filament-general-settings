@@ -8,7 +8,7 @@
 
 Create really fast and easily general settings for your Laravel Filament project.
 
-![Screenshot of Application Feature](./art/joaopaulolndev-filament-general-settings.jpg)
+![Screenshot of Application Feature](https://raw.githubusercontent.com/joaopaulolndev/filament-general-settings/main/art/joaopaulolndev-filament-general-settings.jpg)
 
 ## Features & Screenshots
 
@@ -58,7 +58,7 @@ Ex: to show images in default email providers.
 php artisan vendor:publish --tag="filament-general-settings-assets"
 ```
 
-![Screenshot of Default Email Providers](./art/default_email_provider_images.png)
+![Screenshot of Default Email Providers](https://raw.githubusercontent.com/joaopaulolndev/filament-general-settings/main/art/default_email_provider_images.png)
 
 
 This is the contents of the published config file:
