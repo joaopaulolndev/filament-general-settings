@@ -14,7 +14,6 @@ class ApplicationFieldsForm
             TextInput::make('site_name')
                 ->label(__('filament-general-settings::default.site_name'))
                 ->autofocus()
-                ->required()
                 ->columnSpanFull(),
             Textarea::make('site_description')
                 ->label(__('filament-general-settings::default.site_description'))

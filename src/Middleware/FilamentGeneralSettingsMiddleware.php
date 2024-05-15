@@ -25,6 +25,12 @@ class FilamentGeneralSettingsMiddleware
             ]);
         }
 
+        if ($settings?->site_name) {
+            config([
+                'app.name' => $settings->site_name,
+            ]);
+        }
+
         return $next($request);
     }
 }
