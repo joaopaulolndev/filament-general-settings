@@ -80,6 +80,10 @@ class GeneralSettingsPage extends Page
     {
         $this->data = GeneralSetting::first()?->toArray();
         $this->data = $this->data ?: [];
+        $this->data['seo_description'] = $this->data['seo_description'] ?? '';
+        $this->data['seo_preview'] = $this->data['seo_preview'] ?? '';
+        $this->data['theme_color'] = $this->data['theme_color'] ?? '';
+        $this->data['seo_metadata'] = $this->data['seo_metadata'] ?? [];
         $this->data = EmailDataHelper::getEmailConfigFromDatabase($this->data);
     }
 
