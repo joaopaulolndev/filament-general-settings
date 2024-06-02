@@ -13,4 +13,5 @@ enum TypeFieldEnum: string
     case Select = 'select';
     case Textarea = 'textarea';
     case Datetime = 'datetime';
+    case Image = 'image';
 }
