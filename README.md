@@ -129,6 +129,11 @@ return [
                     'label' => 'Custom Boolean 5',
                     'placeholder' => 'Boolean'
                 ],
+                'custom_field_6' => [
+                    'type' => TypeFieldEnum::Image->value,
+                    'label' => 'Custom Number 6',
+                    'required' => true,
+                ],
             ]
         ],
     ]
