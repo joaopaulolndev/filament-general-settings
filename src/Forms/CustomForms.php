@@ -9,6 +9,7 @@ use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\FileUpload;
 use Joaopaulolndev\FilamentGeneralSettings\Enums\TypeFieldEnum;
+use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 
 class CustomForms
 {
@@ -57,6 +58,7 @@ class CustomForms
                     ->image()
                     ->imageEditor()
                     ->label(__($field['label']))
+                    ->directory($field['directory'])
                     ->required($field['required']);
             }
         }
