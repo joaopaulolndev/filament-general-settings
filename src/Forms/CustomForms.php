@@ -58,7 +58,7 @@ class CustomForms
                     ->image()
                     ->imageEditor()
                     ->label(__($field['label']))
-                    ->directory($field['directory'])
+                    ->directory('GeneralSettings')
                     ->required($field['required']);
             }
         }
