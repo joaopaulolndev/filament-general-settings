@@ -2,6 +2,12 @@
 
 All notable changes to `filament-general-settings` will be documented in this file.
 
+## v1.0.10 - 2024-06-04
+
+- Add French language by @wautone
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-general-settings/compare/v1.0.9...v1.0.10
+
 ## v1.0.9 - 2024-05-28
 
 - Fixed issue reported by @abdosaeedelhassan
