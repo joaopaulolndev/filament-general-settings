@@ -138,6 +138,11 @@ return [
 ## Usage
 Add in AdminPanelProvider.php
 ```php
+
+use Joaopaulolndev\FilamentGeneralSettings\FilamentGeneralSettingsPlugin;
+
+...
+
 ->plugins([
     FilamentGeneralSettingsPlugin::make()
 ])
