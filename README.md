@@ -8,7 +8,9 @@
 
 Create really fast and easily general settings for your Laravel Filament project.
 
+<div class="filament-hidden">
 ![Screenshot of Application Feature](https://raw.githubusercontent.com/joaopaulolndev/filament-general-settings/main/art/joaopaulolndev-filament-general-settings.jpg)
+</div>
 
 ## Features & Screenshots
 
