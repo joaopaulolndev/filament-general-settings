@@ -164,12 +164,38 @@ class GeneralSettingsPage extends Page
     {
         $data = $this->form->getState();
         $data = EmailDataHelper::setEmailConfigToDatabase($data);
+        $data = $this->clearVariables($data);
 
         GeneralSetting::updateOrCreate([], $data);
         Cache::forget('general_settings');
 
         $this->successNotification(__('filament-general-settings::default.settings_saved'));
         redirect(request()?->header('Referer'));
+    }
+
+    private function clearVariables(array $data): array
+    {
+        unset(
+            $data['seo_preview'],
+            $data['seo_description'],
+            $data['default_email_provider'],
+            $data['smtp_host'],
+            $data['smtp_port'],
+            $data['smtp_encryption'],
+            $data['smtp_timeout'],
+            $data['smtp_username'],
+            $data['smtp_password'],
+            $data['mailgun_domain'],
+            $data['mailgun_secret'],
+            $data['mailgun_endpoint'],
+            $data['postmark_token'],
+            $data['amazon_ses_key'],
+            $data['amazon_ses_secret'],
+            $data['amazon_ses_region'],
+            $data['mail_to'],
+        );
+
+        return $data;
     }
 
     public function sendTestMail(MailSettingsService $mailSettingsService): void
