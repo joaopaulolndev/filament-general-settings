@@ -6,8 +6,7 @@ class MailSettingsService
 {
     public function __construct(
         public GeneralSettingsService $generalSettingsService
-    ) {
-    }
+    ) {}
 
     public function loadToConfig($data = null): array
     {

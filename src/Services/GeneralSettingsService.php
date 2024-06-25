@@ -9,8 +9,7 @@ class GeneralSettingsService
 {
     public function __construct(
         public GeneralSetting $generalSetting
-    ) {
-    }
+    ) {}
 
     public function get(): ?GeneralSetting
     {

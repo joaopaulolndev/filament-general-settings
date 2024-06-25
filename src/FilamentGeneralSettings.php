@@ -2,6 +2,4 @@
 
 namespace Joaopaulolndev\FilamentGeneralSettings;
 
-class FilamentGeneralSettings
-{
-}
+class FilamentGeneralSettings {}
