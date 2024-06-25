@@ -2,6 +2,12 @@
 
 All notable changes to `filament-general-settings` will be documented in this file.
 
+## v1.0.12 - 2024-06-25
+
+- Add pt language
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-general-settings/compare/v1.0.11...v1.0.12
+
 ## v1.0.11 - 2024-06-16
 
 ### What's Changed
