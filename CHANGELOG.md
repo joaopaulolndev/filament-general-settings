@@ -2,6 +2,14 @@
 
 All notable changes to `filament-general-settings` will be documented in this file.
 
+## v1.0.13 - 2024-06-27
+
+### What's Changed
+
+* Fix bug quando é desativado a aba do email by @jeffersonsimaogoncalves in https://github.com/joaopaulolndev/filament-general-settings/pull/14
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-general-settings/compare/v1.0.12...v1.0.13
+
 ## v1.0.12 - 2024-06-25
 
 - Add pt language
