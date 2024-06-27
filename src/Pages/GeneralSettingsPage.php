@@ -163,7 +163,9 @@ class GeneralSettingsPage extends Page
     public function update(): void
     {
         $data = $this->form->getState();
-        $data = EmailDataHelper::setEmailConfigToDatabase($data);
+        if (config('filament-general-settings.show_email_tab')) {
+            $data = EmailDataHelper::setEmailConfigToDatabase($data);
+        }
         $data = $this->clearVariables($data);
 
         GeneralSetting::updateOrCreate([], $data);

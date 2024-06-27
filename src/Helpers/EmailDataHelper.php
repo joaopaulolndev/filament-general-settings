@@ -29,7 +29,7 @@ class EmailDataHelper
     public static function setEmailConfigToDatabase($data): mixed
     {
         $data['email_settings'] = [
-            'default_email_provider' => $data['default_email_provider'],
+            'default_email_provider' => $data['default_email_provider'] ?? 'smtp',
             'smtp_host' => $data['smtp_host'] ?? null,
             'smtp_port' => $data['smtp_port'] ?? null,
             'smtp_encryption' => $data['smtp_encryption'] ?? null,
