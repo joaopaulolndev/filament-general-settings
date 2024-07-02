@@ -2,6 +2,18 @@
 
 All notable changes to `filament-general-settings` will be documented in this file.
 
+## v1.0.14 - 2024-07-02
+
+### What's Changed
+
+* Add Arabic translation by @KaramNassar in https://github.com/joaopaulolndev/filament-general-settings/pull/15
+
+### New Contributors
+
+* @KaramNassar made their first contribution in https://github.com/joaopaulolndev/filament-general-settings/pull/15
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-general-settings/compare/v1.0.13...v1.0.14
+
 ## v1.0.13 - 2024-06-27
 
 ### What's Changed
