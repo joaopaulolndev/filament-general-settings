@@ -9,6 +9,8 @@ return [
     'social_networks' => 'Social Networks',
     'site_name' => 'Site Name',
     'site_description' => 'Site Description',
+    'site_logo' => 'Site Logo',
+    'site_favicon' => 'Site Favicon',
     'support_email' => 'Support Email',
     'support_phone' => 'Support Phone',
     'theme_color' => 'Theme Color',

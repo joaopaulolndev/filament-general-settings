@@ -9,6 +9,8 @@ return [
     'social_networks' => 'Redes Sociales',
     'site_name' => 'Nombre del sitio',
     'site_description' => 'Descripción del sitio',
+    'site_logo' => 'Logotipo del sitio',
+    'site_favicon' => 'Icono del sitio',
     'support_email' => 'Correo electrónico de soporte',
     'support_phone' => 'Teléfono de Soporte',
     'theme_color' => 'Color del Tema',
