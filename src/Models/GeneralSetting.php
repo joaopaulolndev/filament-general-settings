@@ -9,8 +9,8 @@ class GeneralSetting extends Model
     protected $fillable = [
         'site_name',
         'site_description',
-	    'site_logo',
-	    'site_favicon',
+        'site_logo',
+        'site_favicon',
         'theme_color',
         'support_email',
         'support_phone',
