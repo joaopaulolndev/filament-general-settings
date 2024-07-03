@@ -12,8 +12,6 @@ return new class extends Migration
             $table->id();
             $table->string('site_name')->nullable();
             $table->text('site_description')->nullable();
-            $table->string('site_logo')->nullable();
-            $table->string('site_favicon')->nullable();
             $table->string('theme_color')->nullable();
             $table->string('support_email')->nullable();
             $table->string('support_phone')->nullable();

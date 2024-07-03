@@ -39,7 +39,9 @@ class ApplicationFieldsForm
 			        ->getUploadedFileNameForStorageUsing(fn() => 'site_favicon.ico')
 			        ->acceptedFileTypes(['image/x-icon', 'image/vnd.microsoft.icon'])
 			        ->columnSpan(2),
-	        ])->columns(4),
+	        ])
+		        ->columns(4)
+		        ->visible(fn() => config('filament-general-settings.show_logo_and_favicon')),
             TextInput::make('support_email')
                 ->label(__('filament-general-settings::default.support_email'))
                 ->prefixIcon('heroicon-o-envelope'),
