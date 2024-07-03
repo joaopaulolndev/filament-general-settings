@@ -9,6 +9,8 @@ return [
     'social_networks' => 'الشبكات الاجتماعية',
     'site_name' => 'اسم الموقع',
     'site_description' => 'وصف الموقع',
+    'site_logo' => 'شعار الموقع',
+    'site_favicon' => 'أيقونة الموقع',
     'support_email' => 'البريد الإلكتروني للدعم',
     'support_phone' => 'رقم هاتف الدعم',
     'theme_color' => 'لون السمة',

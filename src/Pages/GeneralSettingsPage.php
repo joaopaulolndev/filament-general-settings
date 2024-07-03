@@ -78,13 +78,25 @@ class GeneralSettingsPage extends Page
 
     public function mount(): void
     {
-        $this->data = GeneralSetting::first()?->toArray();
-        $this->data = $this->data ?: [];
+        $this->data = GeneralSetting::first()?->toArray() ?: [];
+
         $this->data['seo_description'] = $this->data['seo_description'] ?? '';
         $this->data['seo_preview'] = $this->data['seo_preview'] ?? '';
         $this->data['theme_color'] = $this->data['theme_color'] ?? '';
         $this->data['seo_metadata'] = $this->data['seo_metadata'] ?? [];
         $this->data = EmailDataHelper::getEmailConfigFromDatabase($this->data);
+
+	    if (isset($this->data['site_logo']) && is_string($this->data['site_logo'])) {
+		    $this->data['site_logo'] = [
+			    'name' => $this->data['site_logo'],
+		    ];
+	    }
+
+	    if (isset($this->data['site_favicon']) && is_string($this->data['site_favicon'])) {
+		    $this->data['site_favicon'] = [
+			    'name' => $this->data['site_favicon'],
+		    ];
+	    }
     }
 
     public function form(Form $form): Form

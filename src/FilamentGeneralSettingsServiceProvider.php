@@ -151,6 +151,7 @@ class FilamentGeneralSettingsServiceProvider extends PackageServiceProvider
     {
         return [
             'create_general-settings_table',
+            'add_logo_favicon_columns_to_general_settings_table',
         ];
     }
 }

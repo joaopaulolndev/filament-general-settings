@@ -139,7 +139,27 @@ return [
     ]
 ];
 ```
+### Enabling Logo and Favicon Feature
 
+To enable the feature for choosing a logo and favicon within the application tab, you need the following steps:
+1. Publish the migration file to add the `site_logo` and `site_favicon` fields to the general settings table (only if you have installed the package before this feature):
+```bash
+php artisan vendor:publish --tag="filament-general-settings-migrations"
+php artisan migrate
+```
+
+2. Publish the configuration file:
+```bash
+php artisan vendor:publish --tag="filament-general-settings-config"
+```
+
+3. Open the published configuration file config/filament-general-settings.php and set the following key to true:
+```bash
+return [
+    // Other configuration settings...
+    'show_logo_and_favicon' => true,
+];
+```
 ## Usage
 Add in AdminPanelProvider.php
 ```php
