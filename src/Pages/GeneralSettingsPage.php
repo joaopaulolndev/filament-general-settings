@@ -97,6 +97,8 @@ class GeneralSettingsPage extends Page
                 'name' => $this->data['site_favicon'],
             ];
         }
+
+        $this->data['more_configs'] = $this->data['more_configs'] ?? [];
     }
 
     public function form(Form $form): Form
@@ -232,7 +234,7 @@ class GeneralSettingsPage extends Page
             return;
         }
 
-        $this->successNotification(__('filament-general-settings::default.test_email_success') . $email);
+        $this->successNotification(__('filament-general-settings::default.test_email_success').$email);
     }
 
     private function successNotification(string $title): void
@@ -245,7 +247,7 @@ class GeneralSettingsPage extends Page
 
     private function errorNotification(string $title, string $body): void
     {
-        Log::error('[EMAIL] ' . $body);
+        Log::error('[EMAIL] '.$body);
 
         Notification::make()
             ->title($title)
