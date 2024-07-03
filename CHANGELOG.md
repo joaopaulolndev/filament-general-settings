@@ -2,6 +2,10 @@
 
 All notable changes to `filament-general-settings` will be documented in this file.
 
+## v1.0.16 - 2024-07-03
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-general-settings/compare/v1.0.15...v1.0.16
+
 ## v1.0.15 - 2024-07-03
 
 ### What's Changed
