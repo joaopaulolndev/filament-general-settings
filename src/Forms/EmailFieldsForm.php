@@ -24,11 +24,11 @@ class EmailFieldsForm
                             ->options(function () {
                                 $options = [];
                                 foreach (EmailProviderEnum::options() as $key => $value) {
-                                    if (file_exists(public_path('vendor/filament-general-settings/images/email-providers/' . strtolower($value) . '.svg'))) {
-                                        $options[strtolower($value)] = '<div class="flex gap-2">' .
-                                            ' <img src="' . asset('vendor/filament-general-settings/images/email-providers/' . strtolower($value) . '.svg') . '"  class="h-5">'
-                                            . $value
-                                            . '</div>';
+                                    if (file_exists(public_path('vendor/filament-general-settings/images/email-providers/'.strtolower($value).'.svg'))) {
+                                        $options[strtolower($value)] = '<div class="flex gap-2">'.
+                                            ' <img src="'.asset('vendor/filament-general-settings/images/email-providers/'.strtolower($value).'.svg').'"  class="h-5">'
+                                            .$value
+                                            .'</div>';
                                     } else {
                                         $options[strtolower($value)] = $value;
                                     }
@@ -116,7 +116,6 @@ class EmailFieldsForm
                                     ->label(fn () => __('filament-general-settings::default.send_test_email'))
                                     ->disabled(fn ($state) => empty($state['mail_to']))
                                     ->action('sendTestMail')
-                                    ->color('warning')
                                     ->icon('heroicon-o-paper-airplane'),
                             ])->fullWidth(),
                         ]),
