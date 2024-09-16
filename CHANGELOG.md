@@ -2,6 +2,19 @@
 
 All notable changes to `filament-general-settings` will be documented in this file.
 
+## v1.0.18 - 2024-09-16
+
+### What's Changed
+
+* Bump dependabot/fetch-metadata from 2.1.0 to 2.2.0 by @dependabot in https://github.com/joaopaulolndev/filament-general-settings/pull/18
+* Added dutch translations to the package by @AnassGBNL in https://github.com/joaopaulolndev/filament-general-settings/pull/20
+
+### New Contributors
+
+* @AnassGBNL made their first contribution in https://github.com/joaopaulolndev/filament-general-settings/pull/20
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-general-settings/compare/v1.0.15...v1.0.18
+
 ## v1.0.17 - 2024-07-04
 
 **Full Changelog**: https://github.com/joaopaulolndev/filament-general-settings/compare/v1.0.15...v1.0.17
