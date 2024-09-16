@@ -90,7 +90,7 @@ class FilamentGeneralSettingsServiceProvider extends PackageServiceProvider
         }
 
         // Testing
-        Testable::mixin(new TestsFilamentGeneralSettings());
+        Testable::mixin(new TestsFilamentGeneralSettings);
     }
 
     protected function getAssetPackageName(): ?string
