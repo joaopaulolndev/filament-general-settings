@@ -97,6 +97,18 @@ class GeneralSettingsPage extends Page
                 'name' => $this->data['site_favicon'],
             ];
         }
+
+        $this->fillMoreConfigKeys();
+    }
+
+    public function fillMoreConfigKeys() {
+        if(config('filament-general-settings.show_custom_tabs')){
+            foreach (config('filament-general-settings.custom_tabs') as $key => $customTab) {
+                if(!isset($this->data['more_configs'][$key])){
+                    $this->data['more_configs'][$key] = null;
+                }
+            }
+        }
     }
 
     public function form(Form $form): Form
