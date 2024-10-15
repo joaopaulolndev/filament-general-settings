@@ -1,15 +1,15 @@
 {
-    "name": "joaopaulolndev/filament-general-settings",
+    "name": "untillnesss/filament-general-settings",
     "description": "Filament package to manage general settings",
     "keywords": [
-        "joaopaulolndev",
+        "untillnesss",
         "laravel",
         "filament-general-settings"
     ],
-    "homepage": "https://github.com/joaopaulolndev/filament-general-settings",
+    "homepage": "https://github.com/untillnesss/filament-general-settings",
     "support": {
-        "issues": "https://github.com/joaopaulolndev/filament-general-settings/issues",
-        "source": "https://github.com/joaopaulolndev/filament-general-settings"
+        "issues": "https://github.com/untillnesss/filament-general-settings/issues",
+        "source": "https://github.com/untillnesss/filament-general-settings"
     },
     "license": "MIT",
     "authors": [
