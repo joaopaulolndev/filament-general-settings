@@ -4,6 +4,8 @@ namespace Joaopaulolndev\FilamentGeneralSettings\Forms;
 
 use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\DateTimePicker;
+use Filament\Forms\Components\MarkdownEditor;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -50,7 +52,16 @@ class CustomForms
                     ->label(__($field['label']))
                     ->placeholder(__($field['placeholder']))
                     ->seconds($field['seconds']);
+            } elseif ($field['type'] === TypeFieldEnum::RichEditor->value) {
+                $fields[] = RichEditor::make($fieldKey)
+                    ->label(__($field['label']))
+                    ->toolbarButtons($field['toolbarButtons'] ?? []);
+            } elseif ($field['type'] === TypeFieldEnum::MarkdownEditor->value) {
+                $fields[] = MarkdownEditor::make($fieldKey)
+                    ->label(__($field['label']))
+                    ->toolbarButtons($field['toolbarButtons'] ?? []);
             }
+
         }
 
         return $fields;
