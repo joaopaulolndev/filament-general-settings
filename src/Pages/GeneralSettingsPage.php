@@ -147,7 +147,7 @@ class GeneralSettingsPage extends Page
                 $arrTabs[] = Tabs\Tab::make($customTab['label'])
                     ->label(__($customTab['label']))
                     ->icon($customTab['icon'])
-                    ->schema($customTab['fields'])
+                    ->schema(CustomForms::get($customTab['fields']))
                     ->columns($customTab['columns'])
                     ->statePath('more_configs');
             }
