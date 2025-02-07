@@ -2,6 +2,15 @@
 
 All notable changes to `filament-general-settings` will be documented in this file.
 
+## v1.0.20 - 2025-02-07
+
+### What's Changed
+
+* Bump dependabot/fetch-metadata from 2.2.0 to 2.3.0 by @dependabot in https://github.com/joaopaulolndev/filament-general-settings/pull/24
+* Revert "feat(custom tabs): add Rich Editor & Markdown Editor support" by @zhinea in https://github.com/joaopaulolndev/filament-general-settings/pull/23
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-general-settings/compare/v1.0.19...v1.0.20
+
 ## v1.0.19 - 2025-01-20
 
 ### What's Changed
