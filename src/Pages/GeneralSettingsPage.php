@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Joaopaulolndev\FilamentGeneralSettings\Forms\AnalyticsFieldsForm;
 use Joaopaulolndev\FilamentGeneralSettings\Forms\ApplicationFieldsForm;
+use Joaopaulolndev\FilamentGeneralSettings\Forms\CustomForms;
 use Joaopaulolndev\FilamentGeneralSettings\Forms\EmailFieldsForm;
 use Joaopaulolndev\FilamentGeneralSettings\Forms\SeoFieldsForm;
 use Joaopaulolndev\FilamentGeneralSettings\Forms\SocialNetworkFieldsForm;
