@@ -2,6 +2,19 @@
 
 All notable changes to `filament-general-settings` will be documented in this file.
 
+## v1.0.21 - 2025-02-12
+
+### What's Changed
+
+* Bump aglipanci/laravel-pint-action from 2.4 to 2.5 by @dependabot in https://github.com/joaopaulolndev/filament-general-settings/pull/25
+* Update GeneralSettingsPage.php by @sampiron in https://github.com/joaopaulolndev/filament-general-settings/pull/26
+
+### New Contributors
+
+* @sampiron made their first contribution in https://github.com/joaopaulolndev/filament-general-settings/pull/26
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-general-settings/compare/v1.0.20...v1.0.21
+
 ## v1.0.20 - 2025-02-07
 
 ### What's Changed
