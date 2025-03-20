@@ -23,6 +23,25 @@ class CustomForms
                     ->placeholder(__($field['placeholder']))
                     ->required($field['required'])
                     ->rules($field['rules']);
+                
+            }elseif ($field['type'] === TypeFieldEnum::Password->value) {
+
+                $fields[] = TextInput::make($fieldKey)
+                    ->label(__($field['label']))
+                    ->password()
+                    ->revealable()
+                    ->placeholder(__($field['placeholder']))
+                    ->required($field['required'])
+                    ->rules($field['rules']);
+
+            }elseif ($field['type'] === TypeFieldEnum::Url->value) {
+
+                $fields[] = TextInput::make($fieldKey)
+                    ->label(__($field['label']))
+                    ->prefix('Https://')
+                    ->placeholder(__($field['placeholder']))
+                    ->required($field['required'])
+                    ->rules($field['rules']);
 
             } elseif ($field['type'] === TypeFieldEnum::Boolean->value) {
 
