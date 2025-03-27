@@ -13,4 +13,6 @@ enum TypeFieldEnum: string
     case Select = 'select';
     case Textarea = 'textarea';
     case Datetime = 'datetime';
+    case Password = 'password';
+    case Url = 'url';
 }
