@@ -2,6 +2,14 @@
 
 All notable changes to `filament-general-settings` will be documented in this file.
 
+## v1.0.22 - 2025-03-27
+
+### What's Changed
+
+* Creating 2 more fields in Custom by @sampiron in https://github.com/joaopaulolndev/filament-general-settings/pull/28
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-general-settings/compare/v1.0.21...v1.0.22
+
 ## v1.0.21 - 2025-02-12
 
 ### What's Changed
