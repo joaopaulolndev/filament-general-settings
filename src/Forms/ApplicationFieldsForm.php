@@ -49,6 +49,7 @@ class ApplicationFieldsForm
                 ->prefixIcon('heroicon-o-phone')
                 ->label(__('filament-general-settings::default.support_phone')),
             ColorPicker::make('theme_color')
+                ->hexColor()
                 ->label(__('filament-general-settings::default.theme_color'))
                 ->prefixIcon('heroicon-o-swatch')
                 ->formatStateUsing(fn (?string $state): string => $state ?? config('filament.theme.colors.primary'))
