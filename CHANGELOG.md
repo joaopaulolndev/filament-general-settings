@@ -2,6 +2,20 @@
 
 All notable changes to `filament-general-settings` will be documented in this file.
 
+## v1.0.23 - 2025-07-23
+
+### What's Changed
+
+* Bump dependabot/fetch-metadata from 2.3.0 to 2.4.0 by @dependabot[bot] in https://github.com/joaopaulolndev/filament-general-settings/pull/30
+* Bump stefanzweifel/git-auto-commit-action from 5 to 6 by @dependabot[bot] in https://github.com/joaopaulolndev/filament-general-settings/pull/31
+* Add hexColor validation by @HafizMDanish in https://github.com/joaopaulolndev/filament-general-settings/pull/32
+
+### New Contributors
+
+* @HafizMDanish made their first contribution in https://github.com/joaopaulolndev/filament-general-settings/pull/32
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-general-settings/compare/v1.0.22...v1.0.23
+
 ## v1.0.22 - 2025-03-27
 
 ### What's Changed
