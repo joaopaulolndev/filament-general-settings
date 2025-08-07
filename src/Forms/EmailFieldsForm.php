@@ -2,8 +2,12 @@
 
 namespace Joaopaulolndev\FilamentGeneralSettings\Forms;
 
+use Filament\Schemas\Components\Grid;
+use Filament\Schemas\Components\Section;
+use Filament\Schemas\Components\Group;
+use Filament\Schemas\Components\Actions;
+use Filament\Actions\Action;
 use Filament\Forms;
-use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Joaopaulolndev\FilamentGeneralSettings\Enums\EmailProviderEnum;
@@ -13,7 +17,7 @@ class EmailFieldsForm
     public static function get(): array
     {
         return [
-            Forms\Components\Grid::make()
+            Grid::make()
                 ->schema([
                     Section::make([
                         Select::make('default_email_provider')
@@ -39,7 +43,7 @@ class EmailFieldsForm
                             ->helperText(__('filament-general-settings::default.default_email_provider_helper_text'))
                             ->live()
                             ->columnSpanFull(),
-                        Forms\Components\Group::make()
+                        Group::make()
                             ->schema([
                                 TextInput::make('smtp_host')
                                     ->label(__('filament-general-settings::default.host')),
@@ -60,7 +64,7 @@ class EmailFieldsForm
                             ])
                             ->columns(2)
                             ->visible(fn ($state) => $state['default_email_provider'] === 'smtp'),
-                        Forms\Components\Group::make()
+                        Group::make()
                             ->schema([
                                 TextInput::make('mailgun_domain')
                                     ->label(__('filament-general-settings::default.mailgun_domain')),
@@ -71,14 +75,14 @@ class EmailFieldsForm
                             ])
                             ->columns(1)
                             ->visible(fn ($state) => $state['default_email_provider'] === 'mailgun'),
-                        Forms\Components\Group::make()
+                        Group::make()
                             ->schema([
                                 TextInput::make('postmark_token')
                                     ->label(__('filament-general-settings::default.postmark_token')),
                             ])
                             ->columns(1)
                             ->visible(fn ($state) => $state['default_email_provider'] === 'postmark'),
-                        Forms\Components\Group::make()
+                        Group::make()
                             ->schema([
                                 TextInput::make('amazon_ses_key')
                                     ->label(__('filament-general-settings::default.amazon_ses_key')),
@@ -93,7 +97,7 @@ class EmailFieldsForm
                     ]),
                 ])
                 ->columnSpan(['lg' => 2]),
-            Forms\Components\Grid::make()
+            Grid::make()
                 ->schema([
                     Section::make([
                         TextInput::make('email_from_name')
@@ -111,8 +115,8 @@ class EmailFieldsForm
                                 ->hiddenLabel()
                                 ->placeholder(fn () => __('filament-general-settings::default.mail_to'))
                                 ->reactive(),
-                            Forms\Components\Actions::make([
-                                Forms\Components\Actions\Action::make('Send Test Mail')
+                            Actions::make([
+                                Action::make('Send Test Mail')
                                     ->label(fn () => __('filament-general-settings::default.send_test_email'))
                                     ->disabled(fn ($state) => empty($state['mail_to']))
                                     ->action('sendTestMail')

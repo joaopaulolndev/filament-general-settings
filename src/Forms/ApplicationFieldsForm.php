@@ -2,9 +2,9 @@
 
 namespace Joaopaulolndev\FilamentGeneralSettings\Forms;
 
+use Filament\Schemas\Components\Grid;
 use Filament\Forms\Components\ColorPicker;
 use Filament\Forms\Components\FileUpload;
-use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 
