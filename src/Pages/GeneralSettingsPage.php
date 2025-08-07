@@ -29,6 +29,11 @@ class GeneralSettingsPage extends Page
 {
     protected string $view = 'filament-general-settings::filament.pages.general-settings-page';
 
+    public function getId()
+    {
+        return 'general-settings-page';
+    }
+
     /**
      * @throws Exception
      */

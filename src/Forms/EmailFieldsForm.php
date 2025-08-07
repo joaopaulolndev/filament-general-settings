@@ -18,6 +18,7 @@ class EmailFieldsForm
     {
         return [
             Grid::make()
+                ->columns(1)
                 ->schema([
                     Section::make([
                         Select::make('default_email_provider')
@@ -29,8 +30,8 @@ class EmailFieldsForm
                                 $options = [];
                                 foreach (EmailProviderEnum::options() as $key => $value) {
                                     if (file_exists(public_path('vendor/filament-general-settings/images/email-providers/' . strtolower($value) . '.svg'))) {
-                                        $options[strtolower($value)] = '<div class="flex gap-2">' .
-                                            ' <img src="' . asset('vendor/filament-general-settings/images/email-providers/' . strtolower($value) . '.svg') . '"  class="h-5">'
+                                        $options[strtolower($value)] = '<div style="display: flex; gap: 0.5rem;">' .
+                                            ' <img src="' . asset('vendor/filament-general-settings/images/email-providers/' . strtolower($value) . '.svg') . '"  style="height: 1.25rem;">'
                                             . $value
                                             . '</div>';
                                     } else {
@@ -98,6 +99,7 @@ class EmailFieldsForm
                 ])
                 ->columnSpan(['lg' => 2]),
             Grid::make()
+                ->columns(1)
                 ->schema([
                     Section::make([
                         TextInput::make('email_from_name')
