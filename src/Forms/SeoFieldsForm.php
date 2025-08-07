@@ -2,11 +2,11 @@
 
 namespace Joaopaulolndev\FilamentGeneralSettings\Forms;
 
-use Filament\Schemas\Components\Flex;
-use Filament\Schemas\Components\Section;
 use Filament\Forms\Components\KeyValue;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\ViewField;
+use Filament\Schemas\Components\Flex;
+use Filament\Schemas\Components\Section;
 
 class SeoFieldsForm
 {
