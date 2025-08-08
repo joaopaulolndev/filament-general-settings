@@ -2,6 +2,15 @@
 
 All notable changes to `filament-general-settings` will be documented in this file.
 
+## v2.0.0 - 2025-08-08
+
+### What's Changed
+
+* Bump aglipanci/laravel-pint-action from 2.5 to 2.6 by @dependabot[bot] in https://github.com/joaopaulolndev/filament-general-settings/pull/33
+* 2.x upgrade v4 by @jeffersongoncalves in https://github.com/joaopaulolndev/filament-general-settings/pull/34
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-general-settings/compare/v1.0.23...v2.0.0
+
 ## v1.0.23 - 2025-07-23
 
 ### What's Changed
