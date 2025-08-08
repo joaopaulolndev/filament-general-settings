@@ -11,7 +11,7 @@ Create really fast and easily general settings for your Laravel Filament project
 
 <div class="filament-hidden">
     
-![Screenshot of Application Feature](https://raw.githubusercontent.com/joaopaulolndev/filament-general-settings/main/art/joaopaulolndev-filament-general-settings.jpg)
+![Screenshot of Application Feature](https://raw.githubusercontent.com/joaopaulolndev/filament-general-settings/2.x/art/joaopaulolndev-filament-general-settings.jpg)
 
 </div>
 
@@ -22,15 +22,17 @@ Create really fast and easily general settings for your Laravel Filament project
 - **SEO Meta:** Manage your SEO meta tags, such as title, description, and keywords.
 - **Email:** Manage your email settings, such as SMTP server, port, and credentials.
 - **Social Media Network:** Manage your social media network links, such as Facebook, Twitter, and Instagram.
-- **Support**: [Laravel 11](https://laravel.com) and [Filament 3.x](https://filamentphp.com)
+- **Support**: [Laravel 11](https://laravel.com) and [Filament 4.x](https://filamentphp.com)
 
 ## Installation
 
 You can install the package via composer:
 
 ```bash
-composer require joaopaulolndev/filament-general-settings
+composer require joaopaulolndev/filament-general-settings:^2.0
 ```
+
+**Filament V3** - if you are using Filament v3.x, you can use [this section](https://github.com/joaopaulolndev/filament-general-settings/tree/main)
 
 You can publish and run the migrations with:
 

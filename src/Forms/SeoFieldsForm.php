@@ -3,10 +3,10 @@
 namespace Joaopaulolndev\FilamentGeneralSettings\Forms;
 
 use Filament\Forms\Components\KeyValue;
-use Filament\Forms\Components\Section;
-use Filament\Forms\Components\Split;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\ViewField;
+use Filament\Schemas\Components\Flex;
+use Filament\Schemas\Components\Section;
 
 class SeoFieldsForm
 {
@@ -16,7 +16,7 @@ class SeoFieldsForm
             ViewField::make('seo_description')
                 ->hiddenLabel()
                 ->view('filament-general-settings::forms.components.seo-description'),
-            Split::make([
+            Flex::make([
                 Section::make([
                     TextInput::make('seo_title')
                         ->label(__('filament-general-settings::default.seo_title')),
