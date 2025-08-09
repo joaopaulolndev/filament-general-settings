@@ -66,10 +66,7 @@
         "laravel": {
             "providers": [
                 "Joaopaulolndev\\FilamentGeneralSettings\\FilamentGeneralSettingsServiceProvider"
-            ],
-            "aliases": {
-                "FilamentGeneralSettings": "Joaopaulolndev\\FilamentGeneralSettings\\Facades\\FilamentGeneralSettings"
-            }
+            ]
         }
     },
     "minimum-stability": "dev",
