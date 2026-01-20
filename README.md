@@ -22,7 +22,7 @@ Create really fast and easily general settings for your Laravel Filament project
 - **SEO Meta:** Manage your SEO meta tags, such as title, description, and keywords.
 - **Email:** Manage your email settings, such as SMTP server, port, and credentials.
 - **Social Media Network:** Manage your social media network links, such as Facebook, Twitter, and Instagram.
-- **Support**: [Laravel 11](https://laravel.com) and [Filament 4.x](https://filamentphp.com)
+- **Support**: [Laravel 11](https://laravel.com) and [Filament 5.x](https://filamentphp.com)
 
 ## Compatibility
 
@@ -30,15 +30,17 @@ Create really fast and easily general settings for your Laravel Filament project
 |-----------------|------------------|
 | 1.x             | 3.x              |
 | 2.x             | 4.x              |
+| 3.x             | 5.x              |
 
 ## Installation
 
 You can install the package via composer:
 
 ```bash
-composer require joaopaulolndev/filament-general-settings:^2.0
+composer require joaopaulolndev/filament-general-settings:^3.0
 ```
 
+**Filament V4** - if you are using Filament v4.x, you can use [this section](https://github.com/joaopaulolndev/filament-general-settings/tree/2.x)
 **Filament V3** - if you are using Filament v3.x, you can use [this section](https://github.com/joaopaulolndev/filament-general-settings/tree/main)
 
 You can publish and run the migrations with:
