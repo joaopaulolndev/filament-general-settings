@@ -2,17 +2,6 @@
 
 All notable changes to `filament-general-settings` will be documented in this file.
 
-## v3.0.0 - 2026-01-20
-
-### What's Changed
-
-* Bump actions/checkout from 4 to 5 by @dependabot[bot] in https://github.com/joaopaulolndev/filament-general-settings/pull/35
-* Bump stefanzweifel/git-auto-commit-action from 6 to 7 by @dependabot[bot] in https://github.com/joaopaulolndev/filament-general-settings/pull/36
-* Bump actions/checkout from 5 to 6 by @dependabot[bot] in https://github.com/joaopaulolndev/filament-general-settings/pull/37
-* Bump dependabot/fetch-metadata from 2.4.0 to 2.5.0 by @dependabot[bot] in https://github.com/joaopaulolndev/filament-general-settings/pull/38
-
-**Full Changelog**: https://github.com/joaopaulolndev/filament-general-settings/compare/v2.0.1...v3.0.0
-
 ## v2.0.1 - 2025-08-09
 
 **Full Changelog**: https://github.com/joaopaulolndev/filament-general-settings/compare/v2.0.0...v2.0.1
