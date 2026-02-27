@@ -19,7 +19,7 @@ use Joaopaulolndev\FilamentGeneralSettings\Forms\SeoFieldsForm;
 use Joaopaulolndev\FilamentGeneralSettings\Forms\SocialNetworkFieldsForm;
 use Joaopaulolndev\FilamentGeneralSettings\Helpers\EmailDataHelper;
 use Joaopaulolndev\FilamentGeneralSettings\Mail\TestMail;
-use Joaopaulolndev\FilamentGeneralSettings\Models\GeneralSetting;
+use Joaopaulolndev\FilamentGeneralSettings\Services\GeneralSettingsService;
 use Joaopaulolndev\FilamentGeneralSettings\Services\MailSettingsService;
 
 class GeneralSettingsPage extends Page
@@ -78,7 +78,7 @@ class GeneralSettingsPage extends Page
 
     public function mount(): void
     {
-        $this->data = GeneralSetting::first()?->toArray() ?: [];
+        $this->data = GeneralSettingsService::getModel()->first()?->toArray() ?: [];
 
         $this->data['seo_description'] = $this->data['seo_description'] ?? '';
         $this->data['seo_preview'] = $this->data['seo_preview'] ?? '';
@@ -180,7 +180,7 @@ class GeneralSettingsPage extends Page
         }
         $data = $this->clearVariables($data);
 
-        GeneralSetting::updateOrCreate([], $data);
+        GeneralSettingsService::getModel()->updateOrCreate([], $data);
         Cache::forget('general_settings');
 
         $this->successNotification(__('filament-general-settings::default.settings_saved'));

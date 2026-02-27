@@ -5,7 +5,7 @@ namespace Joaopaulolndev\FilamentGeneralSettings\Middleware;
 use Closure;
 use Filament\Support\Facades\FilamentColor;
 use Illuminate\Http\Request;
-use Joaopaulolndev\FilamentGeneralSettings\Models\GeneralSetting;
+use Joaopaulolndev\FilamentGeneralSettings\Services\GeneralSettingsService;
 use Symfony\Component\HttpFoundation\Response;
 
 class FilamentGeneralSettingsMiddleware
@@ -17,7 +17,7 @@ class FilamentGeneralSettingsMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $settings = GeneralSetting::first();
+        $settings = GeneralSettingsService::getModel()->first();
 
         if ($settings?->theme_color) {
             FilamentColor::register([
