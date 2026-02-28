@@ -2,6 +2,13 @@
 
 All notable changes to `filament-general-settings` will be documented in this file.
 
+## v1.0.24 - 2026-02-28
+
+### Bug Fixes
+
+- **Email:** Configure provider-specific credentials (Postmark, Mailgun, SES) in `loadToConfig()` — fixes test email not sending for non-SMTP providers (#19)
+- **Model:** Add configurable `model` key to config, allowing custom model class with different table name (#29)
+
 ## v1.0.23 - 2025-07-23
 
 ### What's Changed
