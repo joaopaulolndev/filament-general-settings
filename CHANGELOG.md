@@ -2,6 +2,17 @@
 
 All notable changes to `filament-general-settings` will be documented in this file.
 
+## v2.0.3 - 2026-03-04
+
+### Breaking Changes
+
+- **Minimum Filament version bumped to `^4.8`** — required due to the new `PageConfiguration` parameter added to `Page::routes()` in [filamentphp/filament#19225](https://github.com/filamentphp/filament/pull/19225)
+
+### What's Changed
+
+- Fix `routes()` method signature to be compatible with Filament's `PageConfiguration` parameter
+- Update `composer.json` to require `filament/filament: ^4.8`
+
 ## v2.0.2 - 2026-02-28
 
 ### Bug Fixes
