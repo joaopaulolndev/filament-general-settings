@@ -150,7 +150,7 @@ class GeneralSettingsPage extends Page
                     ->icon($customTab['icon'])
                     ->schema(CustomForms::get($customTab['fields']))
                     ->columns($customTab['columns'])
-                    ->statePath('more_configs');
+                    ->statePath($key);
             }
         }
 
