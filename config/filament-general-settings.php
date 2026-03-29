@@ -1,7 +1,9 @@
 <?php
 
+use Joaopaulolndev\FilamentGeneralSettings\Models\GeneralSetting;
+
 return [
-    'model' => \Joaopaulolndev\FilamentGeneralSettings\Models\GeneralSetting::class,
+    'model' => GeneralSetting::class,
     'show_application_tab' => true,
     'show_logo_and_favicon' => false,
     'show_analytics_tab' => true,
