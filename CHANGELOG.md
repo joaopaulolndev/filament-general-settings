@@ -2,6 +2,15 @@
 
 All notable changes to `filament-general-settings` will be documented in this file.
 
+## v2.0.4 - 2026-03-29
+
+### What's Changed
+
+* fix: use unique statePath per custom tab instead of hardcoded 'more_configs' (#40)
+* Added tests for custom tabs statePath behavior
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-general-settings/compare/v2.0.3...v2.0.4
+
 ## v2.0.3 - 2026-03-04
 
 ### Breaking Changes
