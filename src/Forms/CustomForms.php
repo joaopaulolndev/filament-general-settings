@@ -70,7 +70,7 @@ class CustomForms
                     ->label(__($field['label']))
                     ->placeholder(__($field['placeholder']))
                     ->seconds($field['seconds']);
-            } elseif {
+            } elseif ($field['type'] === TypeFieldEnum::RichEditor->value) {
                  $fields[] = RichEditor::make($fieldKey)
                     ->label(__($field['label']))
                     ->toolbarButtons($field['toolbarButtons'] ?? []);
