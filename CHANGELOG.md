@@ -2,6 +2,17 @@
 
 All notable changes to `filament-general-settings` will be documented in this file.
 
+## v2.0.5 - 2026-05-10
+
+### What's Changed
+
+- **feat:** Backport `RichEditor` support to custom field types (originally PR #43 on 3.x)
+- **feat:** Add Kurdish Sorani (`ckb`) language translations (originally PR #42 on 3.x)
+
+Backport keeps Filament v4 branch on feature parity with 3.x.
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-general-settings/compare/v2.0.4...v2.0.5
+
 ## v2.0.4 - 2026-03-29
 
 ### What's Changed
