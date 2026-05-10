@@ -2,6 +2,15 @@
 
 All notable changes to `filament-general-settings` will be documented in this file.
 
+## v1.0.27 - 2026-05-10
+
+### What's Changed
+
+- **docs:** Document `RichEditor` custom field type with `toolbarButtons` config
+- **security:** Bump `esbuild` to `^0.25.0` (fixes [GHSA-67mh-4wv8-2f99](https://github.com/advisories/GHSA-67mh-4wv8-2f99) — dev-only CORS leak, CVSS 5.3)
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-general-settings/compare/v1.0.26...v1.0.27
+
 ## v1.0.26 - 2026-05-10
 
 ### What's Changed
