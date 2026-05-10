@@ -2,6 +2,20 @@
 
 All notable changes to `filament-general-settings` will be documented in this file.
 
+## v3.0.4 - 2026-05-10
+
+### What's Changed
+
+- **feat:** Add back `RichEditor` support to custom field types by @Ali13Yassin in #43
+- **feat:** Add Kurdish Sorani (`ckb`) language translations by @Hamoi1 in #42
+
+### New Contributors
+
+- @Ali13Yassin made their first contribution in #43
+- @Hamoi1 made their first contribution in #42
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-general-settings/compare/v3.0.3...v3.0.4
+
 ## v3.0.3 - 2026-03-29
 
 ### What's Changed
