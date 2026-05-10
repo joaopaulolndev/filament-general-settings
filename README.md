@@ -142,6 +142,11 @@ return [
                     'label' => 'Custom Boolean 5',
                     'placeholder' => 'Boolean'
                 ],
+                'custom_field_6' => [
+                    'type' => TypeFieldEnum::RichEditor->value,
+                    'label' => 'Custom Rich Editor 6',
+                    'toolbarButtons' => ['bold', 'italic', 'link', 'bulletList', 'orderedList'],
+                ],
             ]
         ],
     ]
