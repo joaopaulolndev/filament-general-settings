@@ -15,4 +15,5 @@ enum TypeFieldEnum: string
     case Datetime = 'datetime';
     case Password = 'password';
     case Url = 'url';
+    case RichEditor = 'rich_editor';
 }

@@ -7,6 +7,7 @@ use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\RichEditor;
 use Joaopaulolndev\FilamentGeneralSettings\Enums\TypeFieldEnum;
 
 class CustomForms
@@ -69,6 +70,10 @@ class CustomForms
                     ->label(__($field['label']))
                     ->placeholder(__($field['placeholder']))
                     ->seconds($field['seconds']);
+            } elseif ($field['type'] === TypeFieldEnum::RichEditor->value) {
+                 $fields[] = RichEditor::make($fieldKey)
+                    ->label(__($field['label']))
+                    ->toolbarButtons($field['toolbarButtons'] ?? []);
             }
         }
 
