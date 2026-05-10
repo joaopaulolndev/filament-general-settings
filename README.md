@@ -1,8 +1,8 @@
 # Filament General Settings
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/joaopaulolndev/filament-general-settings.svg?style=flat-square)](https://packagist.org/packages/joaopaulolndev/filament-general-settings)
-[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/joaopaulolndev/filament-general-settings/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/joaopaulolndev/filament-general-settings/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/joaopaulolndev/filament-general-settings/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/joaopaulolndev/filament-general-settings/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
+[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/joaopaulolndev/filament-general-settings/run-tests.yml?branch=2.x&label=tests&style=flat-square)](https://github.com/joaopaulolndev/filament-general-settings/actions?query=workflow%3Arun-tests+branch%3A2.x)
+[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/joaopaulolndev/filament-general-settings/fix-php-code-style-issues.yml?branch=2.x&label=code%20style&style=flat-square)](https://github.com/joaopaulolndev/filament-general-settings/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3A2.x)
 [![Total Downloads](https://img.shields.io/packagist/dt/joaopaulolndev/filament-general-settings.svg?style=flat-square)](https://packagist.org/packages/joaopaulolndev/filament-general-settings)
 
 
@@ -143,6 +143,11 @@ return [
                     'type' => TypeFieldEnum::Boolean->value,
                     'label' => 'Custom Boolean 5',
                     'placeholder' => 'Boolean'
+                ],
+                'custom_field_6' => [
+                    'type' => TypeFieldEnum::RichEditor->value,
+                    'label' => 'Custom Rich Editor 6',
+                    'toolbarButtons' => ['bold', 'italic', 'link', 'bulletList', 'orderedList'],
                 ],
             ]
         ],
