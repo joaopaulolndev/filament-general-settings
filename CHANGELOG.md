@@ -2,6 +2,16 @@
 
 All notable changes to `filament-general-settings` will be documented in this file.
 
+## v2.0.6 - 2026-05-10
+
+### What's Changed
+
+- **docs:** Update test/code-style badges to point to `2.x` branch
+- **docs:** Document `RichEditor` custom field type with `toolbarButtons` config
+- **security:** Bump `esbuild` to `^0.25.0` (fixes [GHSA-67mh-4wv8-2f99](https://github.com/advisories/GHSA-67mh-4wv8-2f99) — dev-only CORS leak, CVSS 5.3)
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-general-settings/compare/v2.0.5...v2.0.6
+
 ## v2.0.5 - 2026-05-10
 
 ### What's Changed
